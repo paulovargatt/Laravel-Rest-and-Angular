@@ -7,6 +7,6 @@ use Illuminate\Http\Request;
 class CarController extends Controller
 {
    public function index(){
-
+       echo 'oi'; die();
    }
 }
