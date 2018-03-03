@@ -12,11 +12,11 @@ class JwtAuth{
 
         public function __construct()
         {
-            $this->key = 'chave-secret-vargatt*-77*65885';
+            $this->key = 'chave-secret-vargatt7765885';
         }
 
 
-    public function signup($email,$password, $getToken=null){
+    public function signup($email, $password, $getToken=null){
         $user = User::where(
                     array('email' => $email,
                     'password' => $password
@@ -52,25 +52,29 @@ class JwtAuth{
 
     public function checkToken($jwt, $getIdentity = false){
             $auth = false;
-
             try{
                 $decoded = JWT::decode($jwt, $this->key, array('HS256'));
-            }catch (\UnexpectedValueException $e){
-                $auth = false;
-            }catch (\DomainException $e){
+            }
+            catch (\UnexpectedValueException $e){
                 $auth = false;
             }
-            if(is_object($decoded) && isset($decoded->sub)){
+            catch (\DomainException $e){
+                $auth = false;
+            }
+            if(isset($decoded) && is_object($decoded) && isset($decoded->sub)){
                 $auth = true;
-            }else{
+            }
+            else{
                 $auth = false;
             }
 
             if($getIdentity){
                 return $decoded;
             }
-
             return $auth;
     }
+
+
+
 
 }
