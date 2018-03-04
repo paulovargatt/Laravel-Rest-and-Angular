@@ -1,0 +1,35 @@
+<div class="container">
+  <br>
+  <h4 class="text-center">{{title}}</h4>
+
+  <form #registerForm="ngForm" class="offset-3 col-6">
+    <div class="form-group">
+      <label for="name">Nome</label>
+      <input type="text" name="name" #name="ngModel" [(ngModel)]="user.name" class="form-control" required>
+      <span *ngIf="!name.valid && name.touched">Campo nome é obrigatório</span>
+    </div>
+
+    <div class="form-group">
+      <label for="lastname">Username</label>
+      <input type="text" name="lastname" #lastname="ngModel" [(ngModel)]="user.lastname" class="form-control" required>
+      <span *ngIf="!lastname.valid && lastname.touched">Campo Username é obrigatório</span>
+    </div>
+
+    <div class="form-group">
+      <label for="email">E-mail</label>
+      <input type="email" name="email" #email="ngModel" [(ngModel)]="user.email" class="form-control" required>
+      <span *ngIf="!email.valid && email.touched">Campo Email é obrigatório</span>
+    </div>
+
+   <div class="form-group">
+      <label for="password">Senha</label>
+      <input type="password" name="password" #password="ngModel" [(ngModel)]="user.password" class="form-control" required>
+      <span *ngIf="!password.valid && password.touched">
+        Campo Senha é obrigatório
+      </span>
+    </div>
+
+    <button type="submit" class="btn btn-success">Registrar</button>
+  </form>
+
+</div>
