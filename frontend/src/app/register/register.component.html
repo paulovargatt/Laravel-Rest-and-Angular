@@ -2,12 +2,21 @@
   <br>
   <h4 class="text-center">{{title}}</h4>
 
-  <form #registerForm="ngForm" class="offset-3 col-6">
+  <div class="alert alert-success" *ngIf="status == 'success'">
+    Registro criado com sucesso,
+    <a [routerLink]="['/login']">faça o login</a>
+  </div>
+
+  <div class="alert alert-danger" *ngIf="status == 'error'">
+  Seu registro não foi criado! Tente novamente.
+  </div>
+
+  <form #registerForm="ngForm" (ngSubmit)="onSubmit(registerForm)" class="offset-3 col-6">
     <div class="form-group">
       <label for="name">Nome</label>
       <input type="text" name="name" #name="ngModel" [(ngModel)]="user.name" class="form-control" required>
       <small *ngIf="!name.valid && name.touched">Campo nome é obrigatório</small>
-      
+
     </div>
 
     <div class="form-group">
