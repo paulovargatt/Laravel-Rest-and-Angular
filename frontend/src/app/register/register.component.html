@@ -7,6 +7,7 @@
       <label for="name">Nome</label>
       <input type="text" name="name" #name="ngModel" [(ngModel)]="user.name" class="form-control" required>
       <small *ngIf="!name.valid && name.touched">Campo nome é obrigatório</small>
+      
     </div>
 
     <div class="form-group">
