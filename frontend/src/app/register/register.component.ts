@@ -23,7 +23,7 @@ export class RegisterComponent implements OnInit {
     )
     {
         this.title = "Faça seu registro";
-        this.user = new User(1,'ROLE_USER','','','','');
+        this.user = new User(1,'ROLE_USER','','','','',false);
     }
 
     ngOnInit() {
@@ -36,7 +36,7 @@ export class RegisterComponent implements OnInit {
                if(response.status == 'success'){
                    console.log(response);
                    this.status = response.status;
-                   this.user =  new User(1,'ROLE_USER','','','','');
+                   this.user =  new User(1,'ROLE_USER','','','','',false);
                    form.reset()
                }else{
                    console.log(response);

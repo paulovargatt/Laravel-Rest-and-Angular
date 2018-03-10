@@ -7,6 +7,7 @@ export class User{
         public lastname: string,
         public email: string,
         public password: string,
+        public gettoken: boolean
     ){}
 
 

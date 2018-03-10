@@ -9,11 +9,16 @@
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
                     <a class="nav-item nav-link active" href="#">Home</a>
-                    <a class="nav-item nav-link" href="#">Novo carro</a>
+                    <a *ngIf="identity" class="nav-item nav-link" href="#">Novo carro</a>
                 </div>
-                <div class="navbar-nav float-right">
+                <div class="navbar-nav float-right" *ngIf="!identity">
                     <a class="nav-item nav-link active" [routerLink]="['login']" >Login</a>
                     <a class="nav-item nav-link" [routerLink]="['registro']">Registro</a>
+                </div>
+
+                <div class="navbar-nav float-right" *ngIf="identity">
+                    <a class="nav-item nav-link active" [routerLink]="['login']" >{{identity.name + ' ' + identity.lastname}}</a>
+                    <a class="nav-item nav-link" [routerLink]="['logout', 1]">Sair</a>
                 </div>
             </div>
         </div>
