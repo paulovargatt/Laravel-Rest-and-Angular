@@ -1,6 +1,15 @@
 <div class="container">
     <h2>{{title}}</h2>
 
+
+    <div class="alert alert-success" *ngIf="status == 'success'">
+        Login Efetuado
+    </div>
+
+    <div class="alert alert-danger" *ngIf="status == 'error'">
+        Não foi possível logar!
+    </div>
+
     <form #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm)" class="offset-3 col-6">
 
         <div class="form-group">

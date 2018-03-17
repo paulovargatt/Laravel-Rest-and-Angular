@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import { Component, OnInit, DoCheck}  from '@angular/core';
 import {UserService} from "./services/user.service";
 
 @Component({
@@ -18,6 +18,15 @@ export class AppComponent{
   constructor(
       private  _userService: UserService
   ){
+    this.identity = this._userService.getIdentity();
+    this.token = this._userService.getToken()
+  }
+
+  ngOnInit(){
+
+  }
+
+  ngDoCheck(){
     this.identity = this._userService.getIdentity();
     this.token = this._userService.getToken()
   }
